@@ -30,8 +30,6 @@ function testAddTodolist(): void
     $todolistService->addTodolist("Belajar PHP");
     $todolistService->addTodolist("Belajar PHP OOP");
     $todolistService->addTodolist("Belajar PHP Database");
-
-    // $todolistService->showTodolist();
 }
 
 function testRemoveTodolist(): void

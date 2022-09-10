@@ -29,9 +29,6 @@ namespace Repository {
 
         function save(Todolist $todolist): void
         {
-            // $number = sizeof($this->todolist) + 1;
-            // $this->todolist[$number] = $todolist;
-
             $sql = "INSERT INTO todolist(todo) VALUES (?)";
             $statement = $this->connection->prepare($sql);
             $statement->execute([$todolist->getTodo()]);
@@ -39,18 +36,6 @@ namespace Repository {
 
         function remove(int $number): bool
         {
-//            if ($number > sizeof($this->todolist)) {
-//                return false;
-//            }
-//
-//            for ($i = $number; $i < sizeof($this->todolist); $i++) {
-//                $this->todolist[$i] = $this->todolist[$i + 1];
-//            }
-//
-//            unset($this->todolist[sizeof($this->todolist)]);
-//
-//            return true;
-
             $sql = "SELECT id FROM todolist WHERE id = ?";
             $statement = $this->connection->prepare($sql);
             $statement->execute([$number]);
@@ -69,7 +54,6 @@ namespace Repository {
 
         function findAll(): array
         {
-            // return $this->todolist;
             $sql = "SELECT id, todo FROM todolist";
             $statement = $this->connection->prepare($sql);
             $statement->execute();
